@@ -1,0 +1,60 @@
+{
+  "name": "deepseek-cat",
+  "version": "1.2.0",
+  "description": "DeepSeek V3.2 非官方客户端，增强体验+绕过环境检测",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --publish never",
+    "build:win": "cross-env ELECTRON_BUILDER_PLATFORM=win32 electron-builder --publish never",
+    "build:mac": "cross-env ELECTRON_BUILDER_PLATFORM=darwin electron-builder --publish never",
+    "build:linux": "cross-env ELECTRON_BUILDER_PLATFORM=linux electron-builder --publish never",
+    "release": "electron-builder --publish always"
+  },
+  "author": "CCCsuper",
+  "license": "MIT",
+  "build": {
+    "appId": "com.CCCsuper.deepseek-cat",
+    "productName": "DeepSeek Cat",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icons/icon.png"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icons/icon.png"
+    },
+    "linux": {
+      "target": "deb",
+      "icon": "assets/icons/icon.png"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "CCCsuper-minecraft",
+        "repo": "deepseek-cat",
+        "private": false
+      }
+    ]
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0",
+    "electron-updater": "^6.1.7",
+    "hotkeys-js": "^3.12.0",
+    "js-cookie": "^3.0.5"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^27.0.0",
+    "electron-builder": "^24.9.1"
+  }
+}
